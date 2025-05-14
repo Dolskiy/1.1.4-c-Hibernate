@@ -10,9 +10,14 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
     public UserServiceImpl() {
-        this.userDao = new UserHibernateDaoImpl();
+        this.userDao = new UserHibernateDaoImpl(); // Дефолтная реализация
     }
 
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    // Остальные методы без изменений
     public void createUsersTable() {
         userDao.createUsersTable();
     }
